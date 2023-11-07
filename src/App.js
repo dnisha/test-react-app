@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Todo from "./components/todo"
+import Employee from "./components/Employee";
 function App() {
+  const todos = [
+    { id: 1, title: "wash dish", completed: false},
+    {id: 2, title: "make dinner", completed: true }
+  ]
+    const data = [
+      {
+        id: 1,
+        employee_name: "Tiger Nixon",
+        employee_salary: 320800,
+        employee_age: 61,
+        profile_image: "",
+      },
+      {
+        id: 2,
+        employee_name: "Garrett Winters",
+        employee_salary: 170750,
+        employee_age: 63,
+        profile_image: "",
+      },
+      {
+        id: 3,
+        employee_name: "Ashton Cox",
+        employee_salary: 86000,
+        employee_age: 66,
+        profile_image: "",
+      },
+    ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {todos.map((todo) => {
+        return <Todo todo={todo} />;
+      })}
+      <h1>Employee Info</h1>
+      <Employee data={data} />
     </div>
   );
 }
